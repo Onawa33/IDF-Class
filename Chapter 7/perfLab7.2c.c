@@ -28,7 +28,7 @@ int main(void)
 
     if (varIchi == varNi)
     {
-        printf("NI! They can't be the same numba! \n");
+        printf("NI! They can't be the same number! \n");
     }
     else if (varIchi > varNi)
     {

@@ -2,6 +2,7 @@
 Onawa Lanier
 30Jan2019
 Lab3B
+Defines each element of an array and prints
 */
 
 #include <stdio.h>
@@ -11,7 +12,7 @@ Lab3B
 int main(void)
 
 {
-    char myWords[256] = {0};
+    char myWords[256] = {0};//declares a char array with 256 elements
 
          myWords[0] = 'P';
          myWords[1] = 'r';
