@@ -37,5 +37,7 @@ int main(void)
          printf("%s\n", myWords);
          printf("My pharse length is %d", strlen(myWords));
 
+         //I'm pretty sure this needs a loop
+
          return 0;
 }
