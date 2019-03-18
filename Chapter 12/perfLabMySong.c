@@ -23,7 +23,8 @@ int main()
     FILE *mySong;  //holds the pointer to the file
     char lyrics[256]; //char array holds a line from the song
 
-    mySong = fopen("/home/student/Desktop/Class/Chapter 12/mySong.txt", "r"); //reads file
+    mySong = fopen("/homeputchar(character);
+        character = fgetc(fptr);/student/Desktop/Class/Chapter 12/mySong.txt", "r"); //reads file
     if(mySong != NULL)  //if there's somethign in the file
     {
         while(!feof(mySong)) //while not at the end of the file

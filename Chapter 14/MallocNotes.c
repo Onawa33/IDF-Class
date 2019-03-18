@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+/*
 int main()
 {
     int *age;
@@ -20,6 +20,7 @@ int main()
     printf("You are %d years old", *age);
     return(0);
 }
+*/
 //kelvin = celsius + 273.15
 //kelvin = (fahrenheit + 459.67) * (5.0/9.0)
 

@@ -6,7 +6,7 @@
 int main()
 {
 
-    int *age;
+    int *age; //points to the value of that memory address
 
     age = (int *)malloc(sizeof(int) *1); //*1 allocates one byte
 

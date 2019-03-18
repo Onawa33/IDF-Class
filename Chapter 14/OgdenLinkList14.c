@@ -27,8 +27,7 @@ int main()
     head->next->next->next = NULL;                      //assign *next in beasley to NULL because he is the tail
 
     do
-    {
-    
+    {    
         //Print the Menu for the user and scan in their choicee
         printf("Welcome to the class link list!\n");
 

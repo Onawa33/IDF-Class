@@ -30,6 +30,7 @@ int main()
             while(!feof(ranger)) //while not at the null terminator
             {
                 lyrics = fgetc(ranger); //gets a char
+                
                 fputc(lyrics, stdout); //prints 
                 //printf("%c", ranger); //prints a char
             }

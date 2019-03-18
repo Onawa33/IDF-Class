@@ -13,7 +13,7 @@ int main()
         exit(1);
     }
     puts("Type something long and interesting\n");
-    fgets(input, 1023, stdin);
+    fgets(input, 1023, stdin); //uses 1023 because of null terminator
     puts("You wrote: ");
     printf("%s\n", input);
 

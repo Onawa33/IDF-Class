@@ -24,6 +24,8 @@ int main()
     while(n != 0)
     {
         np = makeNode(n); //create a new node containing n
+        np -> next = top; //set link of new node to first node
+        top = np; //set top to point new node
 
         if(top == NULL) top = np; //set top as first node
         else last -> next = np;

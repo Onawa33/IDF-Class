@@ -3,7 +3,7 @@
 int main()
 {
     float fahr, cel; //declared variables
-    printf("Enter a celsius temp");
+    printf("Enter a celsius temp\n");
     scanf("%f", &cel);
 
     fahr = (1.8 *cel) + 32.0; //converting formula

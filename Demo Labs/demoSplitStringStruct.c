@@ -93,4 +93,3 @@ extern char * split_the_string(char * string_ptr, char delimiter)
 
 	return returnValue_ptr;
 }
-© 2019 GitHub, Inc.
