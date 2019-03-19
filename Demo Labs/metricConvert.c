@@ -25,87 +25,90 @@ int main()
     char *convTo;
 //I'll print out all the unit options for the user to choose to switch to and from
 
-printf("Which unit of measurement would you like to convert from?\n");
-printf("Type in one of these options:  \n");
-printf("1 - Inches\n2 - Feet\n3 - Centimeters\n4 - Meters\n5 - Kilometers\n6 - Ounces\n7 - Pounds\n8 - Grams\n9 -Cups\n10 - Pints\n 11 - Quarts\n 12 - Gallons\n13 - Milliliters\n14 - Liters\n");
-scanf("%d", &choice1);
-clear_input();
+    printf("Which unit of measurement would you like to convert from?\n");
+    printf("Type in one of these options:  \n");
+    printf("1 - Inches\n2 - Feet\n3 - Centimeters\n4 - Meters\n5 - Kilometers\n6 - Ounces\n7 - Pounds\n8 - Grams\n9 -Cups\n10 - Pints\n11 - Quarts\n12 - Gallons\n13 - Milliliters\n14 - Liters\n");
+    scanf("%d", &choice1);
 
-//I'll use a switch case which offers all options for the user to choose from (inches-feet-centimeters-meters-kilometers, 
-//ounces-pounds-grams-kilograms, cup-pint-quart-gallon-milliliter-liter). Switch case includes error handling for 
-//cross-metric conversions, calls conversion functions. 
 
-//error handling
-while(choice1 < 1 || choice1 > 14)
-{
-    printf("ERROR: Enter a number between 1 and 15.\n");
-    break;
-}
-while(choice1 >= 1 && choice1 <= 14)
-{
-    switch(choice1) //stores and prints user choice
+    //I'll use a switch case which offers all options for the user to choose from (inches-feet-centimeters-meters-kilometers, 
+    //ounces-pounds-grams-kilograms, cup-pint-quart-gallon-milliliter-liter). Switch case includes error handling for 
+    //cross-metric conversions, calls conversion functions. 
+do{
+    //error handling
+    while(choice1 < 1 || choice1 > 14)
     {
-        case 1: convFrom = "Inches";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 2: convFrom = "Feet";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 3: convFrom = "Centimeters";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 4: convFrom = "Meters";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 5: convFrom = "Ounces";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 6: convFrom = "Pounds";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 7: convFrom = "Grams";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 8: convFrom = "Kilograms";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 9: convFrom = "Cups";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 10: convFrom = "Pints";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 11: convFrom = "Quarts";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 12: convFrom = "Gallons";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 13: convFrom = "Milliliters";
-        printf("You are converting from %s.\n", convFrom);
-        break;
-
-        case 14: convFrom = "Liters";
-        printf("You are converting from %s.\n", convFrom);
+        printf("ERROR: Enter a number between 1 and 15.\n");
         break;
     }
-    break;
-}
+    while(choice1 >= 1 && choice1 <= 14)
+    {
+        switch(choice1) //stores and prints user choice
+        {
+            case 1: convFrom = "Inches";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 2: convFrom = "Feet";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 3: convFrom = "Centimeters";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 4: convFrom = "Meters";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 5: convFrom = "Ounces";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 6: convFrom = "Pounds";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 7: convFrom = "Grams";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 8: convFrom = "Kilograms";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 9: convFrom = "Cups";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 10: convFrom = "Pints";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 11: convFrom = "Quarts";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 12: convFrom = "Gallons";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 13: convFrom = "Milliliters";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+
+            case 14: convFrom = "Liters";
+            printf("You are converting from %s.\n", convFrom);
+            break;
+        }
+        break;
+    }
+} while (choice1 == 0);
+//return 0;
+
 //prompts user for number of units to convert
 printf("How many would you like to convert? Please choose a number between 1 and 100.\n");
-scanf("%f", &num);
+scanf("%f", &num); //this is where segmentation fault happens
 //error handling
 if(num < 1 || num > 100)
 {
