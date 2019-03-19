@@ -5,14 +5,17 @@ This program will assist the user with metric-English conversions. Program will 
 they wish to convert a certain unit to. The user will input a unit of measurement to convert to based on choices provided. 
 Program will recognize invalid input, and invalid conversions (will not convert length to mass, etc). Program will print the answer.
 */
-int  main()
+
+#include <stdio.h>
+
+int main()
 {
     //function declarations
-    void length(char convFrom, float num, char convTo);
-    void weight(char convFrom, float num, char convTo);
-    void volume(char convFrom, float num, char convTo);
+    void length(char * convFrom, float num, char * convTo, int choice1, int choice2);
+    void weight(char * convFrom, float num, char * convTo, int choice1, int choice2);
+    void volume(char * convFrom, float num, char * convTo, int choice1, int choice2);
 
-    //int varaibles declaration
+    //int variables declaration
     int choice1 = 0;
     int choice2 = 0;
     float num = 0;
@@ -26,19 +29,21 @@ printf("Which unit of measurement would you like to convert from?\n");
 printf("Type in one of these options:  \n");
 printf("1 - Inches\n2 - Feet\n3 - Centimeters\n4 - Meters\n5 - Kilometers\n6 - Ounces\n7 - Pounds\n8 - Grams\n9 -Cups\n10 - Pints\n 11 - Quarts\n 12 - Gallons\n13 - Milliliters\n14 - Liters\n");
 scanf("%d", &choice1);
+clear_input();
 
 //I'll use a switch case which offers all options for the user to choose from (inches-feet-centimeters-meters-kilometers, 
 //ounces-pounds-grams-kilograms, cup-pint-quart-gallon-milliliter-liter). Switch case includes error handling for 
 //cross-metric conversions, calls conversion functions. 
 
 //error handling
-if(choice1 < 1 || choice2 > 14)
+while(choice1 < 1 || choice1 > 14)
 {
     printf("ERROR: Enter a number between 1 and 15.\n");
+    break;
 }
-else
+while(choice1 >= 1 && choice1 <= 14)
 {
-    switch(choice1)
+    switch(choice1) //stores and prints user choice
     {
         case 1: convFrom = "Inches";
         printf("You are converting from %s.\n", convFrom);
@@ -96,6 +101,7 @@ else
         printf("You are converting from %s.\n", convFrom);
         break;
     }
+    break;
 }
 //prompts user for number of units to convert
 printf("How many would you like to convert? Please choose a number between 1 and 100.\n");
@@ -112,7 +118,7 @@ else if(num > 0 && num < 101)
 }
 
 //forces user to choose conversion only from the class of unit they chose
-else if(choice1 == 1...4)
+if(choice1 >= 1 && choice1 <= 4) //if choice is between 1 and 4, direct user to length comparisons
 {
     printf("Which unit of measurement would you like to convert to?\n");
     printf("Type in one of these options:  \n");
@@ -124,7 +130,7 @@ else if(choice1 == 1...4)
         printf("Please input a number between 1 and 4.\n");
     }
 }
-else if(choice1 == 5...8)
+else if(choice1 >= 5 && choice1 <= 8) //if the choice is between 5 and 8, direct user to weight comparisons
 {
     printf("Which unit of measurement would you like to convert to?\n");
     printf("Type in one of these options:  \n");
@@ -136,7 +142,7 @@ else if(choice1 == 5...8)
         printf("Please input a number between 5 and 8.\n");
     }
 }
-else if(choice1 == 9...14)
+else if(choice1 >= 9 && choice1 <= 14) //if choice is between 9 and 14, direct user to volume comparisons
 {
     printf("Which unit of measurement would you like to convert to?\n");
     printf("Type in one of these options:  \n");
@@ -160,119 +166,121 @@ else
         case 1: convTo = "Inches";       
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        length(convFrom, num, convTo);
+        length(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 2: convTo = "Feet";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        length(convFrom, num, convTo);
+        length(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 3: convTo = "Centimeters";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        length(convFrom, num, convTo);
+        length(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 4: convTo = "Meters";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        length(convFrom, num, convTo);
+        length(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 5: convTo = "Kilometers";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        length(convFrom, num, convTo);
+        length(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 6: convTo = "Ounces";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        weight(convFrom, num, convTo);
+        weight(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 7: convTo = "Pounds";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        weight(convFrom, num, convTo);
+        weight(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 8: convTo = "Grams";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        weight(convFrom, num, convTo);
+        weight(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 9: convTo = "Cups";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        volume(convFrom, num, convTo);
+        volume(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 10: convTo = "Pints";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        volume(convFrom, num, convTo);
+        volume(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 11: convTo = "Quarts";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        volume(convFrom, num, convTo);
+        volume(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 12: convTo = "Gallons";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        volume(convFrom, num, convTo);
+        volume(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 13: convTo = "Milliliters";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        volume(convFrom, num, convTo);
+        volume(convFrom, num, convTo, choice1, choice2);
         break;
 
         case 14: convTo = "Liters";
         printf("How many %s would you like to convert?\n", convTo);
-        scanf("%d", &num);
+        scanf("%f", &num);
         printf("You are converting %f %s to %s.\n", num, convFrom, convTo);
         //function call
-        volume(convFrom, num, convTo);
+        volume(convFrom, num, convTo, choice1, choice2);
         break;
     }
-
 }
+} //end of main
 
-//Function 1: Converts length metrics, prints result
-    length(convFrom, num, convTo)
+    //Function 1: Converts length metrics, prints result
+    void length(char * convFrom, float num, char * convTo, int choice1, int choice2)
     {
+        int answer = 0;
+
         if(choice1 == 1 && choice2 == 1)
         {
             printf("That's not a conversion.\n");
@@ -301,7 +309,7 @@ else
             answer = num / 12;
             printf("%f %s in %s = %f %s", num, convFrom, convTo, answer, convTo);
         }
-        else if(choice1 == 2 && choice 2 == 2)
+        else if(choice1 == 2 && choice2 == 2)
         {
             printf("That's not a conversion.\n");
         }
@@ -314,7 +322,7 @@ else
         else if(choice1 == 2 && choice2 == 4)
         {
             //converts feet to meters
-            answer = num / 3.281
+            answer = num / 3.281;
             printf("%f %s in %s = %f %s", num, convFrom, convTo, answer, convTo);
         }
         else if(choice1 == 3 && choice2 == 1)
@@ -326,7 +334,7 @@ else
         else if(choice1 == 3 && choice2 == 2)
         {
             //converts centimeters to feet
-            answer = num / 30.48
+            answer = num / 30.48;
             printf("%f %s in %s = %f %s", num, convFrom, convTo, answer, convTo);
         }
         else if(choice1 == 3 && choice2 == 3)
@@ -364,8 +372,10 @@ else
     }
 
     //Function 2: Converts weight metrics, prints result
-    weight(convFrom, num, convTo)
+    void weight(char * convFrom, float num, char * convTo, int choice1, int choice2)
     {
+        int answer = 0;
+
         if(choice1 == 5 && choice2 == 5)
         {
             printf("That's not a conversion.\n");
@@ -394,7 +404,7 @@ else
             answer = num * 16;
             printf("%f %s in %s = %f %s", num, convFrom, convTo, answer, convTo);
         }
-        else if(choice1 == 6 && choice 2 == 6)
+        else if(choice1 == 6 && choice2 == 6)
         {
             printf("That's not a conversion.\n");
         }
@@ -457,8 +467,10 @@ else
     }
 
     //Function 3: Converts volume metrics, prints result
-    void volume(convFrom, num, convTo)
+    void volume(char * convFrom, float num, char * convTo, int choice1, int choice2)
     {
+        int answer = 0;
+
         if(choice1 == 9 && choice2 == 9)
         {
             printf("That's not a conversion.\n");
@@ -499,7 +511,7 @@ else
             answer = num * 2;
             printf("%f %s in %s = %f %s", num, convFrom, convTo, answer, convTo);
         }  
-        else if(choice1 == 10 && choice 2 == 10)
+        else if(choice1 == 10 && choice2 == 10)
         {
             printf("That's not a conversion.\n");
         }
