@@ -5,15 +5,15 @@ Prompt #1 Searching for Substrings
 Program inputs a line of text and a search string from the keyboard. Using function strstr, locate the first occurence of the search
 string in the line of text, and assign the location to variable searchPtr of type char *. If the search string is found, print the 
 remainder of the line of text beginning with the search string. Then use strstr again to locate the next occurence of the search 
-string in the line fo text. If a second occurence is found, print the remainder of the line of text beginning with the second occurence.
+string in the line of text. If a second occurence is found, print the remainder of the line of text beginning with the second occurence.
 (HINT: The second call to strstr should contain searchPtr + 1 as its first argument.)
 */
 
 #include <stdio.h>
 #include <string.h>
 
-//Function declaration
-void substringSearch(char *string, char *sub); 
+
+void substringSearch(char *string, char *sub); //Function declaration sends string and substring, returns nothing
 int clear_input();
 
 int main()
@@ -24,7 +24,7 @@ int main()
     char userInput[256] = {0};      //Stores user key input
 
     printf("Enter some characters, a phrase, or jibberish: ");
-    fgets(userString, sizeof(userString), stdin);   //Stores user string
+    fgets(userString, sizeof(userString), stdin);   //Stores user string and its size
     if(userString[0] == '\n')                       //If the first character is a new line
     {
         printf("No string entered. Try again.\n");  //Ask them to try again
@@ -32,7 +32,7 @@ int main()
     }
     
     printf("Enter search character(s): ");
-    fgets(userSearch, sizeof(userSearch), stdin);   //storessearch string
+    fgets(userSearch, sizeof(userSearch), stdin);   //Stores user search and its size
     char *pos = strchr(userSearch, '\n');           //hacky way to get rid of \n at end of string(from fgets())
     if(pos) *pos = 0;                               //Sets location of \n to 0
 
@@ -61,7 +61,7 @@ int main()
 }
 
 
-void substringSearch(char *string, char *sub)        //Searches for search word and prints results
+void substringSearch(char *string, char *sub)       //REceives and searches for search word, prints results, returns nothing
 {
     char *searchPtr;                                //Declare char pointer
     searchPtr = strstr(string, sub);                //Set it to the location of search word
@@ -79,8 +79,6 @@ void substringSearch(char *string, char *sub)        //Searches for search word 
             printf("%s\n", searchPtr);
         }
     }
-    else
-    {
-        printf("%s not found in original string.\n", sub);      //Print if search word doesn't exist.
-    }
+    printf("First Appearance of %s: ", sub);    //Print the resulting substring
+        printf("%s\n", searchPtr);
 }
