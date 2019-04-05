@@ -38,7 +38,7 @@ int main()
     int userChoice = 0;
     char * userNumeral = (char *)malloc(15); //memory array
 
-    printf("*****Roman Numeral Converter!******\n");
+    printf("*****Roman Numeral Converter!******\n"); //prints menu to user
     printf("\t1.Decimal to Roman\n");
     printf("\t2.Roman to Decimal\n");
     printf("\t3.Print Table\n");
@@ -46,20 +46,20 @@ int main()
     printf("\n\tEnter Your Choice: ");
     scanf("%d",&userChoice);
     
-    switch (userChoice)
+    switch (userChoice)   //switch case uses fall through
     {
         case 1:
-            system("cls");
-            printf("Please Enter a Decimal Number between 1 - 3999: ");
+            clear();  //clears the terminal
+            printf("Please Enter a Decimal Number between 1 - 3999: "); //Roman numerals only go to 3999
             scanf("%d",&userChoice);
-            if(userChoice > 0 && userChoice < 4000)
+            if(userChoice > 0 && userChoice < 4000)   //if input is good
             {
-                decimal_to_roman(userChoice);                
+                decimal_to_roman(userChoice);         //calls function and sends user input
             }
 
             break;
         case 2:
-            system("cls");
+            clear();
             printf("Please Enter a Roman Numeral between 1 - 3999: ");
             scanf("%s",userNumeral);
            
@@ -67,10 +67,10 @@ int main()
             
             break;
         case 3:
-            print_table();
+            print_table();          //prints Roman numerals and decimals table
             break;
         case 4:
-            help();
+            help();                 //prints wiki link
             break;
     
         default:
@@ -82,13 +82,13 @@ int main()
 
 void decimal_to_roman(int num)
 {
-    int count = 0;
-    while(num >= 1000)
+    int count = 0;          //counter variable
+    while(num >= 1000)      //checks to see if can subtract 1000
     {
         num -= 1000;
         count++;
     }
-    for(size_t i = 0; i < count; i++)
+    for(size_t i = 0; i < count; i++)   //
     {
         printf("M");
     }

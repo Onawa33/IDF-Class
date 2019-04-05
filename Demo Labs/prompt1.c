@@ -10,8 +10,30 @@ string in the line fo text. If a second occurence is found, print the remainder 
 */
 
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
 
 }
+
+/*
+prototype substring (char * string, char *sub)
+in clear input()
+
+int main
+char user string [256] = {0}
+char user search [256] = {0}
+ int key[4]  = {"idf"}
+char user input[256] = {0}
+
+user enter string
+fgets
+error handle for nithing
+
+stuff here
+
+loop for wrong key
+
+stuff here
+*/

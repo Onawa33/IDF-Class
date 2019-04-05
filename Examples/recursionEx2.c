@@ -19,7 +19,7 @@
                                                     // What does this function do?
  void someFunction(const int b[], size_t startSubscript, size_t size)
  {
-    if ( startSubscript < size )                    // if 0 is less than 10, run function (will occur 10x, 1-9)
+    if (startSubscript < size)                    // if 0 is less than 10, run function (will occur 10x, 1-9)
         {
         someFunction(b, startSubscript + 1, size);  // function calls again, takes array value at position 10, increments index by one
         printf("%d ", b[startSubscript]);           // prints point in array (reverses array and prints backwards)
